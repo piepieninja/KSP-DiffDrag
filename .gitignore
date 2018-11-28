@@ -1,0 +1,11 @@
+*~
+#*#
+docs/*~
+docs/#*#
+src/*~
+src/#*#
+bin/*~
+util/*~
+util/#*#
+data/*~
+data/#*#
