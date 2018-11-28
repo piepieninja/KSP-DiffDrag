@@ -1,0 +1,5 @@
+TODO: Make a way to load a constant KSP file
+TODO: Automate the launch of a KOS script via telnet (see that this can be done with multiple processes)
+TODO: Save the state of current KSP setup
+TODO: Find a way to get a ships position relative to another ship
+TODO: Find a way to calculate relative speed within ship-ship reference frame
