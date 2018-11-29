@@ -22,4 +22,5 @@ I must exporting your KSP path to an environment variable `$KSP`
 *WARNING* running the `load_state.sh` will replace all of your `Volume.0` KOS
 scripts. I'll change this in the future when I get time.
 
-//TODO
+## Useful Links
+* KOS telnet server info: https://ksp-kos.github.io/KOS/general/telnet.html
