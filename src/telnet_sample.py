@@ -16,4 +16,3 @@ tn.write("list files.\n")
 for x in range(0,2):
     tn.write("fun hello_world.ks" + "\n")
     #tn.read_all()
-s

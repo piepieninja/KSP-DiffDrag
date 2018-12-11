@@ -9,3 +9,9 @@ util/*~
 util/#*#
 data/*~
 data/#*#
+src/DragDetector/.vs/*
+src/DragDetector/bin/*
+src/test_mod/.vs/*
+src/test_mod/bin/*
+src/test_mod2/.vs/*
+src/test_mod2/bin/*
