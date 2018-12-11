@@ -2,6 +2,7 @@ print "=======================".
 print "testing ADCS things...".
 
 set loop_num to 0.
+sas off.
 
 until loop_num > 1 {
   print "locking stearing prograde...".
