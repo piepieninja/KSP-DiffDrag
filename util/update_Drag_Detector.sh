@@ -18,7 +18,6 @@ fi
 if [ ! -d "$KSP/GameData/DragLog" ]; then
   mkdir "$KSP/GameData/DragLog"
   mkdir "$KSP/GameData/DragLog/Plugins"
-  mkdir "$KSP/GameData/DragDetector/Parts"
   cp src/DragLog/DragLog/bin/Debug/DragLog.dll "$KSP/GameData/DragLog/Plugins/"
 fi
 

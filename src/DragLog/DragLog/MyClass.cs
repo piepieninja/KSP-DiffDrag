@@ -7,17 +7,17 @@ using KSP;
 // super helpful link:
 // https://forum.kerbalspaceprogram.com/index.php?/topic/153765-getting-started-the-basics-of-writing-a-plug-in/
 //
-namespace HelloWorld
+namespace DragDetector
 {
     //[KSPAddon(KSPAddon.Startup.MainMenu, false)]
     [KSPAddon(KSPAddon.Startup.Flight, false)]
-    public class Hello : MonoBehaviour
+    public class DragDetector : PartModule
     {
 
         // debug option for me when I'm looking at stuff in the terminal
-        bool debug = true;
-        bool verbose = true;
-        bool logActive = true;
+        bool debug = false;
+        bool verbose = false;
+        bool logActive = false;
 
         void Awake()
         {
@@ -97,7 +97,7 @@ namespace HelloWorld
                 }
             }
 
-            pLift = vLift.magnitude; 
+            pLift = vLift.magnitude;
             pDrag = vDrag.magnitude;
             Vector3d force = vLift + vDrag; // sum of all forces on the craft
             Vector3d liftDir = -Vector3d.Cross(vess.transform.right, nVel); // we need the "lift" direction, which
