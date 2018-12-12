@@ -8,5 +8,5 @@ until loop_num > 1 {
   //set drag to d:GETFIELD("Drag Force: ").
   //print "drag: " + drag.
   //print d:modules.
-  print "drag: " + d:getmodule("DragDetector"):getfield("Drag Force: ").
+  print "drag: " + d:getmodule("DragDetector"):getfield("Drag Force").
 }

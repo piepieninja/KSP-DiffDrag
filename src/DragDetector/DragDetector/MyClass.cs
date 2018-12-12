@@ -22,7 +22,7 @@ namespace DragDetector {
         //[KSPField(isPersistant = true, guiName = "Drag Force", guiActive = true, guiActiveEditor = true, guiUnits = "m", guiFormat = "N2")]
         //public float Distance = 0.0f;
 
-        [KSPField(isPersistant = true, guiName = "Drag Force: ", guiActive = true)]
+        [KSPField(isPersistant = true, guiName = "Drag Force", guiActive = true)]
         public double valueToShow = 6.9f;
 
 
