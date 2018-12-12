@@ -11,7 +11,13 @@ data/*~
 data/#*#
 src/DragDetector/.vs/*
 src/DragDetector/DragDetector/bin/*
+src/DragDetector/DragDetector/obj/*
 src/test_mod/.vs/*
 src/test_mod/test_mod/bin/*
 src/test_mod2/.vs/*
 src/test_mod2/test_mod/bin/*
+src/DragDetector_depricated/.vs/*
+src/DragDetector_depricated/DragDetector/bin/*
+src/DragLog/.vs/*
+src/DragLog/DragLog/bin/*
+src/DragLog/DragLog/obj/*
