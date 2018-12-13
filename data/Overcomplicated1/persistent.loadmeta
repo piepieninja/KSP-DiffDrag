@@ -1,0 +1,14 @@
+vesselCount = 2
+UT = 15257.764691395465
+gameMode = SANDBOX
+gameNull = False
+gameCompatible = True
+funds = 0
+science = 0
+reputationPercent = 0
+ongoingContracts = 0
+missionCurrentScore = 0
+missionIsStarted = False
+missionIsEnded = False
+missionHistoryId = 00000000-0000-0000-0000-000000000000
+saveMD5 = 12f1e5ec7237f0a28556268e202ebe96
