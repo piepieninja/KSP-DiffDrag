@@ -14,9 +14,9 @@ namespace DragDetector {
 
 
         // debug option for me when I'm looking at stuff in the terminal
-        bool debug = true;
-        bool verbose = true;
-        bool logActive = true;
+        bool debug = false;
+        bool verbose = false;
+        bool logActive = false;
 
 
         //[KSPField(isPersistant = true, guiName = "Drag Force", guiActive = true, guiActiveEditor = true, guiUnits = "m", guiFormat = "N2")]
