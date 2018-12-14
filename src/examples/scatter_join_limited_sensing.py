@@ -9,8 +9,6 @@ fig = plt.figure()
 
 ax = plt.axes(xlim=(0, 20), ylim=(0, 20))
 
-
-
 def getCoord():
     x = random.uniform(0.0,20.0)
     y = random.uniform(0.0,20.0)
@@ -38,16 +36,27 @@ patch_list.append(patch7)
 patch8 = plt.Circle((1, -1), 0.1, fc='b')
 patch_list.append(patch6)
 
-def get_centroid():
+def get_centroid(p,d):
+    p_x, p_y = p.center
+    temp_list = []
+    for t in patch_list:
+        temp_x,temp_y = t.center
+        if (temp_x != p_x and temp_y != p_y):
+            mag = math.sqrt((p_x - temp_x)**2 + (p_y - temp_y)**2)
+            if mag <= d:
+                temp_list.append(t)
     x = 0.0
     y = 0.0
-    for p in patch_list:
-        a,b = p.center
-        x += a
-        y += b
-    x /= 8
-    y /= 8
-    return (x,y)
+    for s in temp_list:
+        s_x, s_y = s.center
+        x += s_x
+        y += s_y
+    if len(temp_list) == 0:
+        return (10.0,10.0)
+    else:
+        x /= len(temp_list)
+        y /= len(temp_list)
+        return (x,y)
 
 def init():
     for p in patch_list:
@@ -57,9 +66,10 @@ def init():
 
 def animate(i):
     move_speed = 0.05;
-    c_x, c_y = get_centroid()
+    sense_dist = 6.5;
     # print get_centroid()
     for p in patch_list:
+        c_x, c_y = get_centroid(p,sense_dist)
         x, y = p.center
         d_x = c_x - x
         d_y = c_y - y
@@ -74,9 +84,9 @@ def animate(i):
 
 anim = animation.FuncAnimation(fig, animate,init_func=init,frames=250,interval=20,blit=True)
 
-anim.save('animation.mp4', fps=30,
-          extra_args=['-vcodec', 'h264',
-                      '-pix_fmt', 'yuv420p'])
+# anim.save('animation.mp4', fps=30,
+#           extra_args=['-vcodec', 'h264',
+#                       '-pix_fmt', 'yuv420p'])
 
 
 plt.show()

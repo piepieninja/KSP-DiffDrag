@@ -1,0 +1,246 @@
+
+\documentclass[journal,a4paper]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{chessboard}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{url}
+%\usepackage{biblatex}
+\usepackage{cite}
+\usepackage{setspace}
+
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+
+\doublespacing
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Towards Differential Drag Control for\\ Autonomous Multiagent Satellites in\\ Kerbal Space Program}
+
+\author{
+\textbf{Caleb Ashmore Adams}\\
+\textit{Department of Computer Science}, University of Georgia\\
+\textit{Small Satellite Research Laboratory}, University of Georgia\\
+1510 Cedar St.\\
+Athens, GA 30602\\
+770-314-8422\\
+pieninja@uga.edu
+}
+
+
+% The paper headers
+\markboth{UGA CSCI/ARTI 6550 Term Project}%
+{Shell \MakeLowercase{\textit{et al.}}: The Title of your Paper}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+%
+
+% make the title area
+\maketitle
+
+% The Abstract
+\begin{abstract}
+  The concept of differential drag has received a significant amount of research
+  attention due to its relevance with emerging space technologies and its potential
+  use in satellite swarms \cite{horsley}. Furthermore, the computational complexity
+  of many differential drag based satellite swarms makes them ideal for automation
+  through Artificial Intelligence (AI) \cite{swarm_ai}. However, this computational
+  complexity - coupled with the necessity for high fidelity physics simulations -
+  quickly becomes a long and arduous challenge filled with various optimization
+  problems \cite{sin}. Due to the intended brevity of this research, simpler models
+  are preferable. Humorously, this makes the popular aerospace engineering simulation
+  game, Kerbal Space Program (KSP), an ideal candidate due to its simplicity and
+  customizability (mods). AI does, after all, have a wonderful history of being
+  applied to video games for the aforementioned reasons \cite{ai_games_book}\cite{wiki_ai_games}.
+  Thus, this project seeks to implement autonomous formation flying and rendezvous
+  in KSP using mods, Python, and C\#. This research will roughly follow
+  Russell and Norvig’s Planning and Moving (chapter  25.4, 25.5, and 25.6) and Multiagent
+  Planning (chapter 11.4) \cite{class_book}.
+
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+
+% ==============================================================================
+%
+% section
+%
+% ==============================================================================
+\section{Introduction}
+
+% =====================================
+% subsection
+% =====================================
+\subsection{Kerbal Space Program}
+asdf
+
+% =====================================
+% subsection
+% =====================================
+\subsection{Modding KSP}
+asdf
+
+% =====================================
+% subsection
+% =====================================
+\subsection{Differential Drag}
+Put simply, drag is a force that acts opposite to the relative motion of any object
+moving with respect to a surrounding fluid \cite{drag_deff}. For the purposes of this
+research I will attempt to simplify our interpretation of drag as much as possible.
+The drag equation is as follows:
+\begin{equation}
+F_D = \frac{1}{2} \rho u_a^2 C_D A
+\end{equation}
+In formula $1$, the drag equation, $F_D$ is the force of drag acting on the object.
+$\rho$ is the mass density of the fluid the object moves through and $u$ is the relative
+velocity of the fluid immediatley sourrounding the object. $C_D$ is the coeffecient of
+drag of the object and $A$ is the surface area of the object that collides with
+partiles in the fluid. Low Earth orbit, in our case low Kerbin orbit, has a very low $\rho$ value. Interestingly,
+the density of the atmosphere at $400km$ is still significant enough to
+generate non-negligible drag on spacecraft. The term Differential Drag
+comes from the fact that a spacecraft can reorient itself to increase the surface
+Area, $A$, it has exposes to particles within the atmosphere. This means that any
+spacecraft capible of reorienting itself is also capible of generating a maximum
+and a minimum amount drag
+The primary motivation for this research was to see if KSP had similar physcis and
+if I could design a Differential Drag system within the game. To preform Differential
+Drag in KSP it in nessesary to calculate
+these values in real time to generate the force $F_D$. It is also nessesary to
+
+
+
+
+% ==============================================================================
+%
+% section
+%
+% ==============================================================================
+\section{Multiagent Satellites}
+asdf
+
+% =====================================
+% subsection
+% =====================================
+\subsection{The Rendezvous Problem}
+Lin et al state that the multiagent rendezvous problem is to devise "local" control
+strategies, one for each agent, which without any active communication between agents,
+cause all members of the group to eventually rendezvous at single unspecified location \cite{lin_multi}.
+Furthermore, Russell and Norvig discribe three particular values that any such multiagent
+system is likely to have per agent \cite{class_book}:
+
+\begin{enumerate}
+  \item Cohesion, a positive score for getting closer to the average position of the neighbors
+  \item Separation, a negative score for getting too close to any one neighbor
+  \item Alignment, a positive score for getting closer to the average heading of the neighbors
+\end{enumerate}
+
+With the given descriptions one can easily imagine a purely cohesion-based rendezvous
+system where agents converge to some middle point. If we view a given agent as a
+particle $p$ placed randomly within a place, we can use use each particle's $(x,y)$
+value to calculate a centeroid. The unit vector, at each particle, pointing to the
+centeroid represents the movement for the particle that results in the most immediate
+cohesion.
+
+\begin{equation}
+  C(x,y) = (\frac{x_1 + x_2 \hspace{1mm} ... + x_n}{n} , \frac{y_1 + y_2 ... \hspace{1mm} + y_n}{n})
+\end{equation}
+
+I have provided an example program under \texttt{src/examples/scatter\_join.py} that
+performs the above functions. However, this alone is not sufficent. Lin further argues
+that robust multiagent rendezvous requires a logical limit on the sensing capabilities
+of an individual agent \cite{lin_multi}.
+
+
+% \subsubsection{Current Solutions}
+% asdf
+%
+% \subsubsection{My Example Solution}
+% asdf
+
+% =====================================
+% subsection
+% =====================================
+\subsection{The Real Rendezvous Problem}
+adsf
+
+\subsubsection{Current Solutions}
+asdf
+
+\subsubsection{My Example Solution}
+adsf
+
+% ==============================================================================
+%
+% section
+%
+% ==============================================================================
+\section{Analysis}
+asdf
+
+% =====================================
+% subsection
+% =====================================
+\subsection{Functional Rendezvous}
+asdf
+
+% =====================================
+% subsection
+% =====================================
+\subsection{Issues with KSP Drag}
+asdf
+
+% =====================================
+% subsection
+% =====================================
+\subsection{Conclusion}
+asdf
+
+% =====================================
+% subsection
+% =====================================
+\subsection{Future Work}
+
+
+% \appendices
+% \section{Summarizing Maxwell Equations}
+% Appendix one text goes here.
+%
+% % you can choose not to have a title for an appendix
+% % if you want by leaving the argument blank
+% \section{}
+% Appendix two text goes here.
+%
+%
+% % use section* for acknowledgement
+% \section*{Acknowledgment}
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,report}{}
+
+
+% \begin{thebibliography}{1}
+
+% \bibitem{IEEEhowto:kopka}
+% H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+%
+% \end{thebibliography}
+
+
+
+% that's all folks
+\end{document}
