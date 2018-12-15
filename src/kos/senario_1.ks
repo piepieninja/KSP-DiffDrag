@@ -1,7 +1,5 @@
 
-
-// set activeBoi to "".
-// set targetBoi to "".
+SET d TO ship:PARTSDUBBED("Drag Detector v0.2")[0].
 
 if ship:name = "Sat A" {
   print "Set to min drag for initial config".
@@ -67,6 +65,7 @@ until loop_num > 1 {
   set swap_num to swap_num + 1.
   //print " my pos: " + activeBoi:position.
   //print "boi pos: " + targetBoi:position.
+  print "   drag: " + d:getmodule("DragDetector"):getfield("Drag Force").
   print "   dist: " + ABS(targetBoi:position:x).
   print "dist go: " + (ABS(targetBoi:position:x) - total_dist/2).
   print "delta_d: " + delta_d.
